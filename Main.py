@@ -3,16 +3,17 @@ def mostrar_menu():
     """Muestra las opciones del sistema de control."""
     print("\n--- SISTEMA DE PLAYLIST ---")
     print("1. Agregar canciones a la playlist (Listas)")
-    print("2. [Pendiente] Calcular promedio de calificaciones")
-    print("3. [Pendiente] Inventario de productos")
+    print("2. Calcular promedio de calificaciones")
+    print("3. Inventario de productos")
     print("4. Coordenadas y Desempaquetado (Tuplas)")
-    print("5. Salir")
+    print("5. [Pendiente] Registro de Invitados Únicos (Sets/Conjuntos)")
+    print("6. Salir")
 
 def ejecutar_asistente():
     continuar = True
     while continuar:
         mostrar_menu()
-        opcion = input("Seleccione una opción (1-5): ")
+        opcion = input("Seleccione una opción (1-6): ")
         if opcion == "1":
             # --- RESOLUCIÓN OPCIÓN 1: PLAYLIST DINÁMICA ---
             print(f"\n🎵 Generando lista de reproducción...")
@@ -97,6 +98,31 @@ def ejecutar_asistente():
                     print(f"  {error}")
 
         elif opcion == "5":
+            print("\n--- Gestion de invitados ---")
+            print("1. Agregar invitados a la lista ")
+            print("2. Verificar un invitado específico")
+            opcion_5 = input("Seleccione una opción (1-2): ")
+
+            if opcion_5 == "1":
+
+                invitados = set() # Creamos un conjunto vacío para almacenar invitados únicos
+                while True:
+                    nombre = input("Ingresa el nombre del invitado (o 'salir' para terminar): ")
+                    if nombre.lower() == "salir":
+                        break
+                    invitados.add(nombre) # Agregamos el nombre al conjunto (automáticamente maneja duplicados)
+
+                print(f"Invitados únicos: {invitados}")
+            elif opcion_5 == "2":
+                nombre_verificar = input("Ingresa el nombre del invitado a verificar: ")
+                if 'invitados' not in locals():
+                    print("⚠️ No se ha creado la lista de invitados. Por favor, agrega invitados primero.")
+                elif nombre_verificar in invitados:
+                    print(f"{nombre_verificar} está en la lista de invitados.")
+                else:
+                    print(f"{nombre_verificar} NO está en la lista de invitados.")
+
+        elif opcion == "6":
             print(f"️ Cerrando conexión. ¡Hasta luego!")
             continuar = False
 
