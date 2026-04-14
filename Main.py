@@ -12,7 +12,7 @@ def ejecutar_asistente():
     continuar = True
     while continuar:
         mostrar_menu()
-        opcion = input("Seleccione una opción (1-4): ")
+        opcion = input("Seleccione una opción (1-5): ")
         if opcion == "1":
             # --- RESOLUCIÓN OPCIÓN 1: PLAYLIST DINÁMICA ---
             print(f"\n🎵 Generando lista de reproducción...")
@@ -78,21 +78,11 @@ def ejecutar_asistente():
             print(f"precio total de los productos: {precio_total}")
 
         elif opcion == "4":
-            print("*** manejo de tuplas ***")
-
-            mi_tupla = (1, 2, 3, 4, 5)
-
-            # print(mi_tupla)
-
-            for elemento in mi_tupla:
-                print(elemento)
-
-            # Crear una tupla para representar una coordenada x, y
             coordenadas = (3, 5)
 
             # acceder a los elementos de la tupla
             print(f"coordenada x: {coordenadas[0]}")
-            print(f"coordenada x: {coordenadas[1]}")
+            print(f"coordenada y: {coordenadas[1]}")
 
         elif opcion == "5":
             print(f"️ Cerrando conexión. ¡Hasta luego!")
