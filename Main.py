@@ -78,11 +78,23 @@ def ejecutar_asistente():
             print(f"precio total de los productos: {precio_total}")
 
         elif opcion == "4":
-            coordenadas = (3, 5)
+            try:
+                x = int(input("Ingresa la coordenada x: "))
+                y = int(input("Ingresa la coordenada y: "))
+            except ValueError:
+                print("⚠️ Error: Por favor, ingresa valores numéricos válidos para x e y.")
+            else:
+                coordenadas = (x, y)
+                print(f"Tupla de coordenadas creada: {coordenadas}")
+                print(f"coordenada x: {coordenadas[0]}")
+                print(f"coordenada y: {coordenadas[1]}")
 
-            # acceder a los elementos de la tupla
-            print(f"coordenada x: {coordenadas[0]}")
-            print(f"coordenada y: {coordenadas[1]}")
+                print("Intento deliberado de cambiar una tupla para demostrar que falla:")
+                try:
+                    coordenadas[0] = x + 1
+                except TypeError as error:
+                    print("Intento de modificar la tupla fallido a propósito:")
+                    print(f"  {error}")
 
         elif opcion == "5":
             print(f"️ Cerrando conexión. ¡Hasta luego!")
